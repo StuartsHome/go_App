@@ -28,10 +28,10 @@ func NewServer() *Server {
 	return s
 }
 
-func (s *Server) routes(){
-	s.HandlerFunc("/shopping-items", s.listShoppingItems()).Methods("GET")
-	s.HandlerFunc("/shopping-itens", s.createShoppingItem()).Methods("POST")
-	s.HandlerFunc("/shopping-items/{id}", s.removeShoppingItem()).Methods("DELETE")
+func (s *Server) routes() {
+	s.HandleFunc("/shopping-items", s.listShoppingItems()).Methods("GET")
+	s.HandleFunc("/shopping-itens", s.createShoppingItem()).Methods("POST")
+	s.HandleFunc("/shopping-items/{id}", s.removeShoppingItem()).Methods("DELETE")
 }
 
 // clojure?
@@ -44,7 +44,7 @@ func (s *Server) createShoppingItem() http.HandlerFunc {
 		}
 
 		i.ID = uuid.New()
-		s.shoppingItems = append.(s.shoppingItems, i)
+		s.shoppingItems = append(s.shoppingItems, i)
 
 		w.Header().Set("Content-Type", "application/json")
 		if err := json.NewEncoder(w).Encode(i); err != nil {
@@ -53,7 +53,6 @@ func (s *Server) createShoppingItem() http.HandlerFunc {
 		}
 	}
 }
-
 
 func (s *Server) listShoppingItems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -66,7 +65,7 @@ func (s *Server) listShoppingItems() http.HandlerFunc {
 }
 
 func (s *Server) removeShoppingItem() http.HandlerFunc {
-	return func (w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		idStr, _ := mux.Vars(r)["id"]
 		id, err := uuid.Parse(idStr)
 		if err != nil {
@@ -75,11 +74,9 @@ func (s *Server) removeShoppingItem() http.HandlerFunc {
 
 		for i, item := range s.shoppingItems {
 			if item.ID == id {
-				s.shoppingItems = append(s.shoppingItems[:i], s.shoppingItems[i +1:]...)
+				s.shoppingItems = append(s.shoppingItems[:i], s.shoppingItems[i+1:]...)
 				break
 			}
 		}
 	}
 }
-
-
