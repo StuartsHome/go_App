@@ -1,0 +1,8 @@
+# Send
+GET http://localhost:8080/orders
+
+# Create
+POST http://localhost:8080/orders
+
+# Remove
+DELETE http://localhost:8080/orders/111
