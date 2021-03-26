@@ -1,4 +1,4 @@
-## Go Application
+## :wrench: Go Application
 Go application with:
 - Concurrency
 - Database: MySQL
