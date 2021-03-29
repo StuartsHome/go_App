@@ -10,3 +10,10 @@ Go application with:
 // The go mod tidy command adds missing module requirements for imported packages
 // and removes requirements on modules that aren't used anymore.
 
+
+### :wrench: To Do
+- Docker app for REST server
+- Database (MySQL)
+- Testing (Testify, Mock)
+    - Mock and stub REST server and http calls
+

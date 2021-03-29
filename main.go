@@ -159,8 +159,8 @@ func main() {
 	orders = append(orders, Order{ID: "111", Name: "Latte", Price: 2, Shop: &Shop{Shopname: "Costa", Postcode: "TW5 8NL"}})
 	orders = append(orders, Order{ID: "222", Name: "Cappuccino", Price: 4, Shop: &Shop{Shopname: "Pret", Postcode: "AU1 0PT"}})
 
-	//handleRequests()
-	go callSingleAPI("http://api.open-notify.org/iss-now.json", 5)
-	callAPI(10000000)
+	handleRequests()
+	// go callSingleAPI("http://api.open-notify.org/iss-now.json", 5)
+	// callAPI(10000000)
 
 }
