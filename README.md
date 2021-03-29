@@ -8,7 +8,9 @@ Go application with:
 
 ### :wrench: To Do
 - Docker app for REST server
-- Database (MySQL)
+- Database 
+    - Firebase (NoSQL)
+    (MySQL)
 - Testing (Testify, Mock)
     - Mock and stub REST server and http calls
 
