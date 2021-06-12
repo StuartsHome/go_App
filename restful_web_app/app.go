@@ -57,7 +57,7 @@ func handleRequests() {
 	myRouter.HandleFunc("/", homePage)
 	myRouter.HandleFunc("/articles", returnAllArticles)
 	myRouter.HandleFunc("/article/{id}", returnSingleArticle)
-	log.Fatal(http.ListenAndServe(":1000", myRouter))
+	log.Fatal(http.ListenAndServe(":1001", myRouter))
 }
 
 func main() {
@@ -75,6 +75,6 @@ func main() {
 		}},
 		// Article{Id: "2", Title: "Hello 2", Desc: "Article Description", Content: "Article Content", Codes: []string{"CC", "DD"}},
 	}
-
+	fmt.Println("Starting service")
 	handleRequests()
 }
